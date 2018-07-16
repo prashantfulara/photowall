@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
 //Stateless function
 function Photo(props) {
@@ -8,12 +9,18 @@ function Photo(props) {
                 <figurecaption><p>{post.description}</p></figurecaption>
                     <div className='button-container'>
                         <button className='remove-button' onClick={() => {
-                            props.onRemovePost(post);
+                            props.onRemovePost(
+                                post);
                         }}>
                         Remove
                         </button>
                     </div>
             </figure>
+}
+
+Photo.propTypes = {
+    post: PropTypes.object.isRequired,
+    onRemovePost: PropTypes.func.isRequired
 }
 
 //Component class
